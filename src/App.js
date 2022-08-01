@@ -23,22 +23,6 @@ function App() {
     showPoints: false,
   });
 
-  // const [boardElement, setBoardElement] = useState();
-
-  // const boardEl = useCallback(
-  //   () => (
-  //     <AppSettings.Provider value={showPoints}>
-  //       <Board
-  //         resolution={resolution}
-  //         width={width}
-  //         height={height}
-  //         color={color}
-  //       />
-  //     </AppSettings.Provider>
-  //   ),
-  //   [resolution, width, height, color, showPoints]
-  // );
-
   useEffect(() => {
     if (color.primary === color.secondary) {
       setColor({
