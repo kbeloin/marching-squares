@@ -13,8 +13,8 @@
 
 .container {
   position: relative;
-  width: min(90vw, 550px);
-  height: min(90vw, 550px);
+  width: var(--width);
+  height: var(--height);
 }
 
 /* Icon button */

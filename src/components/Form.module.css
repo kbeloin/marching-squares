@@ -1,3 +1,11 @@
+.info > svg {
+  --fill: var(--canvas-background);
+  width: 15px;
+  height: 15px;
+  opacity: 0.8;
+  margin-left: 0.5rem;
+}
+
 .form {
   --gap: 1rem;
   color: var(--font-color);
@@ -57,7 +65,7 @@
   counter-increment: value var(--value);
   content: counter(value);
   position: absolute;
-  left: 121%;
+  left: 121.25%;
   top: 20%;
   color: var(--canvas-background);
   font-size: 14px;

@@ -1,18 +1,28 @@
 .App {
   text-align: center;
-  display: grid;
-  place-content: center;
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+  padding: 1rem;
+  flex-direction: column;
   overflow: hidden;
   min-height: 100vh;
   background-color: var(--app-background);
+  gap: 1rem;
+  max-height: 100vh;
+  overflow: hidden;
 }
 
 .App-header {
   display: flex;
   flex-direction: row;
-  width: 100%;
+  width: var(--width);
   position: relative;
   justify-content: center;
+}
+
+.App-header > * {
+  margin: 0;
 }
 
 .icon {
@@ -23,5 +33,6 @@
 }
 
 .icon img {
-  margin: auto;
+  width: 25px;
+  height: 25px;
 }

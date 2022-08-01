@@ -1,10 +1,14 @@
 import styles from "./Form.module.css";
+// import icons from "../utils/icons";
 
 export const Form = ({ setDimensions, resolution, showPoints, speed }) => {
   return (
     <div className={styles.form}>
       <label>
-        Resolution
+        <span>
+          Resolution
+          {/* <span className={styles.info}>{icons("info")}</span> */}
+        </span>
         <input
           type="range"
           className={`${styles.slider} ${styles.resolution}`}
@@ -25,7 +29,10 @@ export const Form = ({ setDimensions, resolution, showPoints, speed }) => {
         />
       </label>
       <label>
-        Speed
+        <span>
+          Speed
+          {/* <span className={styles.info}>{icons("info")}</span> */}
+        </span>
         <input
           type="range"
           id="speed"
@@ -62,7 +69,10 @@ export const Form = ({ setDimensions, resolution, showPoints, speed }) => {
         }
       />
       <label htmlFor={"showPoints"}>
-        <span>Points</span>
+        <span>
+          Points
+          {/* <span className={styles.info}>{icons("info")}</span> */}
+        </span>
         <span className={styles.checkmark}></span>
       </label>
     </div>

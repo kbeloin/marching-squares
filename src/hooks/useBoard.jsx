@@ -96,7 +96,7 @@ export default function useBoard({
     if (showPoints) {
       board.current.forEach((row, i) => {
         row.forEach((cell, j) => {
-          ctx.fillStyle = cell ? secondary : primary;
+          ctx.fillStyle = cell ? primary : secondary;
           ctx.fillRect(
             i * resolution - halfPointWidth,
             j * resolution - halfPointWidth,
