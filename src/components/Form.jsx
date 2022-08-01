@@ -1,6 +1,6 @@
 import styles from "./Form.module.css";
 
-export const Form = ({ setDimensions, resolution, showPoints, width }) => {
+export const Form = ({ setDimensions, resolution, showPoints }) => {
   return (
     <div className={styles.form}>
       <label>
@@ -30,6 +30,7 @@ export const Form = ({ setDimensions, resolution, showPoints, width }) => {
         name="showPoints"
         id="showPoints"
         value={showPoints}
+        defaultChecked={true}
         onChange={(e) =>
           setDimensions((state) => ({
             ...state,

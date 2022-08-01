@@ -18,10 +18,10 @@ function App() {
   });
 
   const [{ resolution, width, height, showPoints }, setDimensions] = useState({
-    resolution: 5,
+    resolution: 30,
     width: 500,
     height: 500,
-    showPoints: false,
+    showPoints: true,
   });
 
   useEffect(() => {
