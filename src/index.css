@@ -1,9 +1,10 @@
 :root {
-  --color-primary: #202124;
+  --color-primary: #00bcd4;
   --color-secondary: #ff0000;
-  --canvas-background: #fafafa;
-  --app-background: #202124;
-  --font-color: #fff;
+  --canvas-background: #202124;
+  --app-background: #fff;
+  --font-color: #202124;
+  --color-line: black;
   --width: min(90vw, 550px);
   --height: var(--width);
 }

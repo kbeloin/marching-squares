@@ -1,6 +1,6 @@
 import styles from "./Form.module.css";
 
-export const Form = ({ setDimensions, resolution, showPoints }) => {
+export const Form = ({ setDimensions, resolution, showPoints, width }) => {
   return (
     <div className={styles.form}>
       <label>
@@ -8,8 +8,13 @@ export const Form = ({ setDimensions, resolution, showPoints }) => {
         <input
           type="range"
           className={styles.slider}
+          style={{
+            "--value": `${resolution}`,
+            "--offset": `${resolution}%`,
+          }}
           name="resolution"
-          min="2"
+          min="4"
+          max="100"
           value={resolution}
           onChange={(e) =>
             setDimensions((state) => ({
@@ -19,19 +24,22 @@ export const Form = ({ setDimensions, resolution, showPoints }) => {
           }
         />
       </label>
-      <label>
-        Show Points
-        <input
-          type="checkbox"
-          name="showPoints"
-          value={showPoints}
-          onChange={(e) =>
-            setDimensions((state) => ({
-              ...state,
-              [e.target.name]: e.target.checked,
-            }))
-          }
-        />
+
+      <input
+        type="checkbox"
+        name="showPoints"
+        id="showPoints"
+        value={showPoints}
+        onChange={(e) =>
+          setDimensions((state) => ({
+            ...state,
+            [e.target.name]: e.target.checked,
+          }))
+        }
+      />
+      <label htmlFor={"showPoints"}>
+        <span>Points</span>
+        <span className={styles.checkmark}></span>
       </label>
     </div>
   );

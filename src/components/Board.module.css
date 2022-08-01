@@ -1,11 +1,13 @@
 .board {
   overflow: hidden;
   border-radius: 50%;
-  background-color: #fff;
+  background-color: var(--app-background);
+  border: var(--canvas-background) solid 2px;
   width: var(--width);
   height: var(--height);
   position: absolute;
   left: 0;
+  top: 0;
   isolation: isolate;
 }
 
@@ -27,7 +29,8 @@
   color: white;
   cursor: pointer;
   position: absolute;
-  left: 0;
+  left: 2px;
+  top: 2px;
   opacity: 0;
   transition: fill, opacity 0.2s ease-in-out;
 }

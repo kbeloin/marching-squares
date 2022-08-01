@@ -44,14 +44,15 @@ export default function useBoard({
 
   const drawLine = useCallback(
     ([x1, y1], [x2, y2]) => {
-      ctx.lineWidth = 1;
+      ctx.lineWidth = 2;
+      ctx.strokeStyle = color.line;
       ctx.lineJoin = "round";
       ctx.beginPath();
       ctx.moveTo(x1, y1);
       ctx.lineTo(x2, y2);
       ctx.stroke();
     },
-    [ctx]
+    [ctx, color]
   );
 
   const drawBoard = useCallback(() => {
@@ -116,7 +117,7 @@ export default function useBoard({
     let board = ref.current;
     let ctx = board.getContext("2d");
 
-    ctx.globalAlpha = 0.5;
+    ctx.globalAlpha = 1;
     setCtx(ctx);
   }, [board, ref]);
 

@@ -14,6 +14,7 @@ function App() {
     secondary: getComputedStyle(document.body).getPropertyValue(
       "--color-secondary"
     ),
+    line: getComputedStyle(document.body).getPropertyValue("--color-line"),
   });
 
   const [{ resolution, width, height, showPoints }, setDimensions] = useState({
@@ -32,6 +33,7 @@ function App() {
         secondary: getComputedStyle(document.body).getPropertyValue(
           "--color-secondary"
         ),
+        line: getComputedStyle(document.body).getPropertyValue("--color-line"),
       });
     }
   }, [color.primary, color.secondary]);
@@ -47,6 +49,7 @@ function App() {
           resolution={resolution}
           setDimensions={setDimensions}
           showPoints={showPoints}
+          width={width}
         />
       </AppContext.Provider>
     </div>
