@@ -4,20 +4,42 @@
   background-color: #fff;
   width: var(--width);
   height: var(--height);
+  position: absolute;
+  left: 0;
+  isolation: isolate;
 }
 
 .container {
   position: relative;
+  width: min(90vw, 550px);
+  height: min(90vw, 550px);
 }
 
 /* Icon button */
 
 .button {
-  width: 100px;
-  height: 100px;
+  --fill: var(--canvas-background);
+  width: var(--width);
+  height: var(--height);
   border-radius: 50%;
-  background-color: transparent;
+  background-color: rgba(30, 30, 30, 0.3);
   border: none;
   color: white;
   cursor: pointer;
+  position: absolute;
+  left: 0;
+  opacity: 0;
+  transition: fill, opacity 0.2s ease-in-out;
+}
+
+.button svg {
+  --width: 50px;
+  --height: 50px;
+  width: var(--width);
+  height: var(--height);
+  fill: var(--fill);
+}
+
+.button:hover {
+  opacity: 1;
 }

@@ -4,5 +4,5 @@
   place-content: center;
   overflow: hidden;
   min-height: 100vh;
-  background-color: black;
+  background-color: var(--app-background);
 }

@@ -1,7 +1,14 @@
 import { useState, useCallback, useEffect, useMemo } from "react";
 import { getLinePath, getCellState } from "../logic/Board";
 
-export default function useBoard({ resolution, width, height, ref, color }) {
+export default function useBoard({
+  showPoints,
+  resolution,
+  width,
+  height,
+  ref,
+  color,
+}) {
   const [board, setBoard] = useState([]);
   const [ctx, setCtx] = useState(null);
 
@@ -53,17 +60,19 @@ export default function useBoard({ resolution, width, height, ref, color }) {
     ctx.clearRect(0, 0, width, height);
     const cols = Math.ceil(width / resolution);
     const rows = Math.ceil(height / resolution);
-    // board.forEach((row, i) => {
-    //   row.forEach((cell, j) => {
-    //     ctx.fillStyle = cell ? secondary : primary;
-    //     ctx.fillRect(
-    //       i * resolution - halfPointWidth,
-    //       j * resolution - halfPointWidth,
-    //       pointWidth,
-    //       pointWidth
-    //     );
-    //   });
-    // });
+    if (showPoints) {
+      board.forEach((row, i) => {
+        row.forEach((cell, j) => {
+          ctx.fillStyle = cell ? secondary : primary;
+          ctx.fillRect(
+            i * resolution - halfPointWidth,
+            j * resolution - halfPointWidth,
+            pointWidth,
+            pointWidth
+          );
+        });
+      });
+    }
 
     for (let i = 0; i < cols; i++) {
       for (let j = 0; j < rows; j++) {
@@ -89,7 +98,19 @@ export default function useBoard({ resolution, width, height, ref, color }) {
         }
       }
     }
-  }, [board, resolution, width, height, ref, drawLine, halfWidth]);
+  }, [
+    board,
+    resolution,
+    width,
+    height,
+    ref,
+    drawLine,
+    halfWidth,
+    showPoints,
+    pointWidth,
+    color,
+    halfPointWidth,
+  ]);
 
   useEffect(() => {
     let board = ref.current;

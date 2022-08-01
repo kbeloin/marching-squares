@@ -1,6 +1,11 @@
 :root {
-  --color-primary: black;
+  --color-primary: #202124;
   --color-secondary: #ff0000;
+  --canvas-background: #fafafa;
+  --app-background: #202124;
+  --font-color: #fff;
+  --width: min(90vw, 550px);
+  --height: var(--width);
 }
 
 body {

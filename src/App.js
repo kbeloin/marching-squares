@@ -1,6 +1,9 @@
 import "./App.css";
 import Board from "./components/Board";
-import { useCallback, useEffect, useState } from "react";
+import { Form } from "./components/Form";
+import { useEffect, useState, createContext } from "react";
+
+export const AppContext = createContext();
 
 function App() {
   const [color, setColor] = useState({
@@ -13,25 +16,28 @@ function App() {
     ),
   });
 
-  const [{ resolution, width, height }, setDimensions] = useState({
+  const [{ resolution, width, height, showPoints }, setDimensions] = useState({
     resolution: 5,
     width: 500,
     height: 500,
+    showPoints: false,
   });
 
-  const [boardElement, setBoardElement] = useState();
+  // const [boardElement, setBoardElement] = useState();
 
-  const boardEl = useCallback(
-    () => (
-      <Board
-        resolution={resolution}
-        width={width}
-        height={height}
-        color={color}
-      />
-    ),
-    [resolution, width, height, color]
-  );
+  // const boardEl = useCallback(
+  //   () => (
+  //     <AppSettings.Provider value={showPoints}>
+  //       <Board
+  //         resolution={resolution}
+  //         width={width}
+  //         height={height}
+  //         color={color}
+  //       />
+  //     </AppSettings.Provider>
+  //   ),
+  //   [resolution, width, height, color, showPoints]
+  // );
 
   useEffect(() => {
     if (color.primary === color.secondary) {
@@ -46,29 +52,19 @@ function App() {
     }
   }, [color.primary, color.secondary]);
 
-  useEffect(() => {
-    setBoardElement(boardEl());
-  }, [boardEl]);
-
   return (
     <div className="App">
-      <header className="App-header"></header>
-      {boardElement}
-      <div>
-        <label>
-          Resolution:
-          <input
-            type="number"
-            value={resolution}
-            onChange={(e) =>
-              setDimensions((state) => ({
-                ...state,
-                resolution: Number(e.target.value),
-              }))
-            }
-          />
-        </label>
-      </div>
+      <AppContext.Provider value={{ showPoints, resolution }}>
+        <header className="App-header"></header>
+
+        <Board width={width} height={height} color={color} />
+
+        <Form
+          resolution={resolution}
+          setDimensions={setDimensions}
+          showPoints={showPoints}
+        />
+      </AppContext.Provider>
     </div>
   );
 }

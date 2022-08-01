@@ -2,12 +2,15 @@ import useBoard from "../hooks/useBoard";
 import useInterval from "../hooks/useInterval";
 import styles from "./Board.module.css";
 import icons from "../utils/icons";
-import { useRef } from "react";
+import { useRef, useContext } from "react";
+import { AppContext } from "../App";
 
-export default function Board({ resolution, width, height, color }) {
+export default function Board({ width, height, color }) {
+  const { showPoints, resolution } = useContext(AppContext);
   const ref = useRef(null);
 
   let { generateBoard } = useBoard({
+    showPoints,
     resolution,
     width,
     height,
