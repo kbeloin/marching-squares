@@ -6,10 +6,10 @@ import { useRef, useContext } from "react";
 import { AppContext } from "../App";
 
 export default function Board({ width, height, color }) {
-  const { showPoints, resolution } = useContext(AppContext);
+  const { showPoints, resolution, speed } = useContext(AppContext);
   const ref = useRef(null);
 
-  let { generateBoard } = useBoard({
+  let { shiftBoard } = useBoard({
     showPoints,
     resolution,
     width,
@@ -18,7 +18,7 @@ export default function Board({ width, height, color }) {
     ref,
   });
 
-  const { toggle, isRunning } = useInterval(generateBoard, 100);
+  const { toggle, isRunning } = useInterval(shiftBoard, speed);
 
   return (
     <div className={styles.container}>

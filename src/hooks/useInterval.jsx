@@ -17,7 +17,7 @@ export default function useInterval(callback, delay) {
   useEffect(() => {
     if (isRunning) {
       function tick() {
-        savedCallback.current();
+        requestAnimationFrame(savedCallback.current);
       }
       if (delay !== null) {
         let id = setInterval(tick, delay);

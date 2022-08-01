@@ -50,9 +50,10 @@
   transition: all 0.4s ease-in-out; /* 0.2 seconds transition on hover */
   display: block;
   position: relative;
+  overflow: visible;
 }
 
-.form input.slider::after {
+.form input.resolution::after {
   counter-increment: value var(--value);
   content: counter(value);
   position: absolute;
@@ -62,7 +63,17 @@
   font-size: 14px;
 }
 
-.form input.slider::before {
+.form input.speed::after {
+  counter-increment: value var(--value);
+  content: counter(value);
+  position: absolute;
+  left: 105%;
+  top: 20%;
+  color: var(--canvas-background);
+  font-size: 14px;
+}
+
+.form input.resolution::before {
   direction: ltr;
   content: "500/";
   position: absolute;
@@ -83,20 +94,22 @@
   -webkit-appearance: none; /* Override default look */
   appearance: none;
   border-radius: 50%;
-  width: 24px; /* Set a specific slider handle width */
-  height: 24px; /* Slider handle height */
+  left: 2px;
+  width: 27px; /* Set a specific slider handle width */
+  height: 27px; /* Slider handle height */
   background: var(--canvas-background); /* Green background */
-  border: var(--app-background) solid 2%; /* White border */
+  border: var(--app-background) solid 2px; /* White border */
   cursor: pointer; /* Cursor on hover */
   position: relative;
-  margin-left: 1px;
+  margin-right: 2px;
 }
 
 .slider::-moz-range-thumb {
-  width: 25px; /* Set a specific slider handle width */
-  height: 25px; /* Slider handle height */
+  width: 27px; /* Set a specific slider handle width */
+  height: 27px; /* Slider handle height */
+  background: var(--canvas-background); /* Green background */
+  border: var(--app-background) solid 2px; /* White border */
   border-radius: 50%;
-  background: var(--app-background);
   cursor: pointer; /* Cursor on hover */
 }
 
@@ -121,10 +134,10 @@ span.checkmark:last-child::after {
 span.checkmark:last-child::before {
   left: 0.5px;
   top: 0.5px;
-  width: 24px;
-  height: 24px;
-  background: var(--app-background);
-  border: var(--canvas-background) solid 2px;
+  width: 25px;
+  height: 25px;
+  background: var(--canvas-background);
+  border: var(--app-background) solid 2px;
   border-radius: 50%;
   z-index: 1;
   transition: transform 0.3s;
@@ -147,14 +160,14 @@ span.checkmark.checkmark::after {
 input[type="checkbox"]:checked + label span.checkmark::before {
   border-color: var(--app-background);
   background: var(--canvas-background);
-  transform: translateX(110%);
+  transform: translateX(105%);
 }
 
 input[type="checkbox"]:checked + label span.checkmark::after {
   content: "ON";
   color: var(--canvas-background);
   transform: translateX(-50%), translateY(-50%);
-  left: 7px;
+  left: 6px;
 }
 
 input[type="checkbox"]:checked + label span.checkmark {

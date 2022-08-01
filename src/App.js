@@ -17,12 +17,14 @@ function App() {
     line: getComputedStyle(document.body).getPropertyValue("--color-line"),
   });
 
-  const [{ resolution, width, height, showPoints }, setDimensions] = useState({
-    resolution: 30,
-    width: 500,
-    height: 500,
-    showPoints: true,
-  });
+  const [{ resolution, width, height, showPoints, speed }, setDimensions] =
+    useState({
+      resolution: 30,
+      width: 500,
+      height: 500,
+      showPoints: true,
+      speed: 100,
+    });
 
   useEffect(() => {
     if (color.primary === color.secondary) {
@@ -40,7 +42,7 @@ function App() {
 
   return (
     <div className="App">
-      <AppContext.Provider value={{ showPoints, resolution }}>
+      <AppContext.Provider value={{ showPoints, resolution, speed }}>
         <header className="App-header">
           <h2>Marching Squares</h2>
           <a
@@ -63,6 +65,7 @@ function App() {
           setDimensions={setDimensions}
           showPoints={showPoints}
           width={width}
+          speed={speed}
         />
       </AppContext.Provider>
     </div>

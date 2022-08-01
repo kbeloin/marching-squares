@@ -20,7 +20,7 @@
 /* Icon button */
 
 .button {
-  --fill: var(--canvas-background);
+  --fill: var(--app-background);
   width: var(--width);
   height: var(--height);
   border-radius: 50%;
@@ -43,6 +43,6 @@
   fill: var(--fill);
 }
 
-.button:hover {
+:where(:hover, :focus).button {
   opacity: 1;
 }

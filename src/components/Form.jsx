@@ -1,13 +1,13 @@
 import styles from "./Form.module.css";
 
-export const Form = ({ setDimensions, resolution, showPoints }) => {
+export const Form = ({ setDimensions, resolution, showPoints, speed }) => {
   return (
     <div className={styles.form}>
       <label>
         Resolution
         <input
           type="range"
-          className={styles.slider}
+          className={`${styles.slider} ${styles.resolution}`}
           style={{
             "--value": `${resolution}`,
             "--offset": `${resolution}%`,
@@ -16,6 +16,29 @@ export const Form = ({ setDimensions, resolution, showPoints }) => {
           min="4"
           max="100"
           value={resolution}
+          onChange={(e) =>
+            setDimensions((state) => ({
+              ...state,
+              [e.target.name]: Number(e.target.value),
+            }))
+          }
+        />
+      </label>
+      <label>
+        Speed
+        <input
+          type="range"
+          id="speed"
+          className={`${styles.slider} ${styles.speed}`}
+          style={{
+            "--value": `${speed}`,
+            "--offset": `${speed}%`,
+          }}
+          name="speed"
+          min="10"
+          max="300"
+          step={10}
+          value={speed}
           onChange={(e) =>
             setDimensions((state) => ({
               ...state,
