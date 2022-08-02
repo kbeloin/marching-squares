@@ -21,6 +21,10 @@
   justify-content: center;
 }
 
+.App-header h2 {
+  margin-right: auto;
+}
+
 .App-header > * {
   margin: 0;
 }
