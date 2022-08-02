@@ -13,3 +13,7 @@ Lower numbers generates a finer resolution; however, resolutions between 1 - 3 h
 ## Technologies Used
 
 Built in React, this app also provided an opportunity to use 2D canvas and vector graphics. Originally, my approach was to represent the field using DOM-elements, but this had obvious performance limitations.
+
+## Demo
+
+https://fabulous-hamster-9bd2e5.netlify.app/
