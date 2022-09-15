@@ -46,7 +46,7 @@ function App() {
         <header className="App-header">
           <h2>Marching Squares</h2>
           <a
-            href="https://github.com/kbeloin/marching-squares"
+            href="https://github.com/kylebeloin/marching-squares"
             className="icon"
             target="_blank"
             rel="noopener noreferrer"
